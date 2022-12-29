@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  mongo-chat-app:
+    image: mongo
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    expose:
+      - 27017
+    environment:
+      MONGO_INITDB_DATABASE: chat_app
+      # MONGO_INITDB_ROOT_USERNAME: root
+      # MONGO_INITDB_ROOT_PASSWORD: root
+    # volumes:
+    #   - mongodata
+    networks:
+      - chat_app_network
+volumes:
+  mongodata:
+    driver: "local"
+
+networks:
+  chat_app_network:
+    driver: "bridge"
