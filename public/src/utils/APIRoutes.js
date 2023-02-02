@@ -1,4 +1,4 @@
-export const host = "http://apichat.nguyennhatlam.tech";
+export const host = "https://apichat.nguyennhatlam.tech";
 export const loginRoute = `${host}/api/auth/login`;
 export const registerRoute = `${host}/api/auth/register`;
 export const logoutRoute = `${host}/api/auth/logout`;
