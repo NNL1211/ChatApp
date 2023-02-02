@@ -36,7 +36,7 @@ const server = app.listen(process.env.PORT, () =>
 );
 const io = socket(server, {
   cors: {
-    origin: "https://chat.nguyennhatlam.tech",
+    origin: "http://localhost:3000",
     credentials: true,
   },
 });
