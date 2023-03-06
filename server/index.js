@@ -10,11 +10,17 @@ require("dotenv").config();
 
 app.use(cors());
 app.use(express.json());
+// Thêm cấu hình referrerPolicy
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://chat.nguyennhatlam.tech");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.setHeader("Referrer-Policy", "same-origin");
   next();
 });
+
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "https://chat.nguyennhatlam.tech");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 mongoose.set("strictQuery", false);
 mongoose
   .connect(process.env.MONGO_URL, {
