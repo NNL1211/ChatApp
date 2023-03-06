@@ -1,4 +1,4 @@
-FROM node:16-slim
+FROM node:lts-alpine
 
 RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
@@ -14,12 +14,7 @@ RUN npm install
 
 COPY --chown=node:node . .
 
-EXPOSE 8000
-
-RUN cat /etc/group
-RUN addgroup -g 20 appgroup
-RUN adduser -D -u 501 appuser -G appgroup
-RUN chown -R appuser:appgroup /app
+EXPOSE 8001
 
 CMD [ "node", "index.js" ]
 
